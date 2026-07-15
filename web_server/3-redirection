@@ -1,2 +1,29 @@
 #!/usr/bin/env bash
 # Configures nginx with a permanent redirect
+
+apt-get update
+apt-get install -y nginx
+
+echo "Holberton School for the win!" > /var/www/html/index.nginx-debian.html
+
+cat > /etc/nginx/sites-available/default <<'EOF'
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    root /var/www/html;
+    index index.html index.htm index.nginx-debian.html;
+
+    server_name _;
+
+    location /redirect_me {
+        return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
+    }
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+}
+EOF
+
+service nginx restart
