@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>404 - Ceci n'est pas une page</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html, body {
+    height: 100%;
+    background: radial-gradient(circle at 50% 20%, #1b1035 0%, #0a0518 60%, #05030d 100%);
+    font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+    color: #eae6ff;
+    overflow: hidden;
+  }
+
+  .stars {
+    position: fixed;
+    inset: 0;
+    background-image:
+      radial-gradient(1px 1px at 20px 30px, #fff, transparent),
+      radial-gradient(1px 1px at 90px 120px, #fff, transparent),
+      radial-gradient(1.5px 1.5px at 160px 60px, #fff, transparent),
+      radial-gradient(1px 1px at 230px 180px, #fff, transparent),
+      radial-gradient(1.5px 1.5px at 300px 40px, #fff, transparent),
+      radial-gradient(1px 1px at 40px 220px, #fff, transparent),
+      radial-gradient(1px 1px at 340px 260px, #fff, transparent);
+    background-repeat: repeat;
+    background-size: 380px 300px;
+    opacity: 0.6;
+    animation: drift 90s linear infinite;
+  }
+
+  @keyframes drift {
+    from { background-position: 0 0; }
+    to { background-position: -380px 300px; }
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+    padding: 20px;
+  }
+
+  .number {
+    font-size: clamp(60px, 14vw, 130px);
+    font-weight: 900;
+    letter-spacing: 6px;
+    background: linear-gradient(180deg, #ffffff 0%, #b79bff 45%, #6a3ef0 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 40px rgba(140, 90, 255, 0.5);
+    animation: float 4s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .fr-line {
+    margin-top: 18px;
+    font-size: clamp(20px, 4vw, 30px);
+    font-style: italic;
+    color: #cfc3ff;
+    border-top: 1px dashed rgba(207, 195, 255, 0.35);
+    border-bottom: 1px dashed rgba(207, 195, 255, 0.35);
+    padding: 12px 22px;
+  }
+
+  .sub {
+    margin-top: 16px;
+    font-size: 15px;
+    color: #9d8fd6;
+    max-width: 420px;
+    line-height: 1.5;
+  }
+
+  .planet {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.85;
+  }
+
+  .planet.one {
+    width: 70px; height: 70px;
+    top: 12%; left: 10%;
+    background: radial-gradient(circle at 35% 30%, #ff9de2, #a83fbf 70%);
+    box-shadow: 0 0 30px rgba(255, 120, 220, 0.4);
+    animation: orbit1 12s ease-in-out infinite;
+  }
+
+  .planet.two {
+    width: 40px; height: 40px;
+    bottom: 15%; right: 12%;
+    background: radial-gradient(circle at 35% 30%, #9dd6ff, #3f7fbf 70%);
+    box-shadow: 0 0 24px rgba(120, 190, 255, 0.4);
+    animation: orbit2 9s ease-in-out infinite;
+  }
+
+  .planet.three {
+    width: 22px; height: 22px;
+    top: 65%; left: 18%;
+    background: radial-gradient(circle at 35% 30%, #ffe89d, #bf8f3f 70%);
+    box-shadow: 0 0 18px rgba(255, 220, 120, 0.4);
+    animation: orbit3 7s ease-in-out infinite;
+  }
+
+  @keyframes orbit1 {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(15px, 20px); }
+  }
+  @keyframes orbit2 {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(-12px, -18px); }
+  }
+  @keyframes orbit3 {
+    0%, 100% { transform: translate(0, 0); }
+    50% { transform: translate(10px, -14px); }
+  }
+
+  .home-link {
+    margin-top: 30px;
+    display: inline-block;
+    padding: 10px 26px;
+    border-radius: 30px;
+    border: 1px solid rgba(207, 195, 255, 0.4);
+    color: #eae6ff;
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 1px;
+    transition: all 0.25s ease;
+  }
+  .home-link:hover {
+    background: rgba(207, 195, 255, 0.12);
+    border-color: rgba(207, 195, 255, 0.8);
+  }
+</style>
+</head>
+<body>
+
+  <div class="stars"></div>
+  <div class="planet one"></div>
+  <div class="planet two"></div>
+  <div class="planet three"></div>
+
+  <div class="wrap">
+    <div class="number">404</div>
+    <div class="fr-line">Ceci n'est pas une page</div>
+    <p class="sub">You've drifted past the edge of this website's known universe. The page you're looking for doesn't exist &mdash; or maybe it never did.</p>
+    <a class="home-link" href="/">&larr; back to safety</a>
+  </div>
+
+</body>
+</html>
